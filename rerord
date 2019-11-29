@@ -12,3 +12,7 @@
 7.使用 vue-resource 获取轮播图的数据 cnpm i vue-resource -S
 
 8. grid  新闻资讯 图片分享 商品购买 留言反馈 视频专区 联系我们
+
+9.media list mint-ui中
+
+10.将新闻列表中的文字都变成可用连接 保存id 备用

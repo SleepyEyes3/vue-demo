@@ -18,13 +18,24 @@ import './lib/mui/css/icons-extra.css'
 import App from './APP.vue'
 
 // swipe
-import { Swipe, SwipeItem } from 'mint-ui';
+import { Swipe, SwipeItem,Button } from 'mint-ui';
 Vue.component(Swipe.name, Swipe);
 Vue.component(SwipeItem.name, SwipeItem);
+Vue.component(Button.name,Button)
 
 // vue-resource
 import VueResource from 'vue-resource'
 Vue.use(VueResource)
+
+// router 全局配置
+Vue.http.options.root='http://www.liulongbin.top:3005'
+
+// 配置时间过滤器
+// 导入格式化插件
+import Moment from 'moment' 
+Vue.filter('dateFormat',function(dataStr,pattern="YYYY-MM-DD HH:mm:ss"){
+  return Moment(dataStr).format(pattern)
+})
 
 var vm = new Vue({
   el:'#app',
