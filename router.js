@@ -6,11 +6,14 @@ Vue.use(VueRouter)
 import home from './src/components/tabbar/Home.vue'
 import member from './src/components/tabbar/Member.vue'
 import search from './src/components/tabbar/Search.vue'
-import shopcar from './src/components/tabbar/Shopcar.vue'
+import shopCar from './src/components/tabbar/Shopcar.vue'
 
 // 导入newList
 import newsList from './src/components/news/NewList.vue'
 import newsInfo from './src/components/news/NewsInfo.vue'
+import photoList from './src/components/photos/PhotoList.vue'
+import photoInfo from './src/components/photos/PhotoInfo.vue'
+import goods from './src/components/goods/GoodList.vue'
 
 var router = new VueRouter({
   routes:[
@@ -18,8 +21,11 @@ var router = new VueRouter({
     {path:'/home',component:home},
     {path:'/home/news',component:newsList},
     {path:'/home/newsinfo/:id',component:newsInfo}, // 这边的id的写法要注意了
+    {path:'/home/photos',component:photoList},
+    {path:'/home/photoinfo/:id',component:photoInfo},
+    {path:'/home/goods',component:goods},
     {path:'/member',component:member},
-    {path:'/shopcar',component:shopcar},
+    {path:'/shopcar',component:shopCar},
     {path:'/search',component:search},
   ],
   linkActiveClass:'mui-active'

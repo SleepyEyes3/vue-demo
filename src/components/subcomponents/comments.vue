@@ -2,8 +2,8 @@
   <div class="cmt-container">
     <h3>发表评论</h3>
     <hr>
-    <textarea placeholder="Say what you want to say,metherfxxkers" maxlength="120"></textarea>
-    <mt-button type="primary" size='large'>发表评论</mt-button>
+    <textarea v-model="postContent" placeholder="Say what you want to say,metherfxxkers" maxlength="120"></textarea>
+    <mt-button type="primary" size='large' @click="postComment">发表评论</mt-button>
 
     <div class="cmt-list" v-for="(item, index) in comments" :key="index">
       <div class="cmt-item">
@@ -11,7 +11,7 @@
           第{{index+1 }}楼&nbsp;&nbsp;用户：{{item.user_name}}&nbsp;&nbsp;发表时间：{{item.add_time | dateFormat}}
         </div>
         <div class="cmt-body">
-          无fuck说！
+          {{item.content}}
         </div>
       </div>
     </div>
@@ -27,7 +27,8 @@ export default {
 
     return {
       pageIndex:1, // 默认展示第一页数据
-      comments:[]
+      comments:[],
+      postContent:"",
     }
   },
   created(){
@@ -47,9 +48,30 @@ export default {
     getMore(){
       this.pageIndex++
       this.getComments()
+    },
+    postComment(){
+      if(this.postContent.trim() === 0){
+        return Toast('评论的内容不能为空') // 这边的返回有点意思
+      }
+      this.$http
+      .post('api/postcomment/'+this.id,{content:this.postContent.trim()})
+      .then(res => {
+        if(res.body.status === 0){
+          var cmt = {
+          user_name:"joker",
+          add_time:Date.now(),
+          content:this.postContent.trim()
+        }
+          console.log('add successful')
+          this.comments.unshift(cmt)
+          this.postContent = '' // 评论清空
+        }else{
+          Toast('发表评论失败！')
+        }
+      })
     }
   },
-  props:["id"]
+  props:["id"] //属性的注册
   
 }
 </script>

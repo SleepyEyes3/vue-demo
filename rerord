@@ -16,3 +16,15 @@
 9.media list mint-ui中
 
 10.将新闻列表中的文字都变成可用连接 保存id 备用
+
+11. 提交评论  postComment api/postcomment
+
+12. home/photos PhotoList
+  npm install babel-plugin-transform-remove-strict-mode
+
+  *{
+    touch-action:pan-y
+  }
+
+
+13. 懒加载 实现图片列表 /api/getimages/:cateid
