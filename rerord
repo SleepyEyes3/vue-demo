@@ -28,3 +28,36 @@
 
 
 13. 懒加载 实现图片列表 /api/getimages/:cateid
+
+14. 轮播图抽离组件  轮播图的样式的自定义  
+    购买组件的使用 
+    加入购物车动作的完成 
+    小球动画优化（不能把小球的开始的横纵向的坐标写死）domObject.getBoundingClientRect()
+    使用JS API获取购买数量的最大值 里面还使用乐watch监听的回调函数的值
+     
+15.几个关键的样式的含义：z-index
+
+16. 使用vuex来存储共享的值 。相当于是一个全局共享的数据仓库
+      要修改state中的方法，不退将直接进行修改，而是mutations里面的方法对数据进行操作
+      mutations：{
+        increment(state){
+          state.count++
+        }
+      }
+      methods:{
+        add(){
+          this .$store.commit('increment') 
+
+        }
+      }
+
+17. 页面刷新后，购物车的数据会消失，这时候需要用到本地存储 localStorage.setItem(key,value)
+
+
+12.3 开发顺序
+    填入goodslist  -> 加载更多 -> 编程式导航
+    goodsinfo -> 实现页面的跳转 （使用函数式编程）
+    goodsinfo card组件  overflow hidden
+    api/getthuimages + id 
+    抽离 swiper  组件的导入 与 参数的传递
+    解决轮播图不好看问题 使用样式表达式 决定是否使用样式的宽度使用百分百
