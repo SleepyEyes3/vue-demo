@@ -1,0 +1,19 @@
+1. 安装：npm i vuex --save
+2. vuex的导入、注册、挂载
+3. 两个重要的属性：store、mutation、getter
+4. store: 
+    (1) store里面的值的访问： this.$store.state.count来访问
+    (2) store中的数据最好在mutation中进行操作
+5. mutation:
+    (1) mutation的第一个参数是state
+    (2) mutation中的方法的调用:this.$store.commit("methodName")
+    (3) mutation中方法参数的个数，参数的个数只有两个。第一个参数一定是state； 
+6. getter:
+    (1) getters只负责取值，不负责修改值
+    (2) getters:{
+      optCount:function(state){
+        return '当前最新的值：' + state.count
+      }
+    }
+    (3) 相当于一个过滤器，对state中的值进行一层包装，state中的数值已发生变化，就会引发getter中的重新求值
+    (4) this.$store.getters.methodName()

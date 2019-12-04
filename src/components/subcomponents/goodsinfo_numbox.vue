@@ -46,6 +46,13 @@ export default {
         .numbox()
         .setOption("max", newVal);
     }
+    // max可以是一个字符串，function可以写成箭头函数
+    // 'max': (newVal, oldVal) => {
+    //   // 使用 JS API 设置 numbox 的最大值
+    //   mui(".mui-numbox")
+    //     .numbox()
+    //     .setOption("max", newVal);
+    // }
   }
 };
 </script>
