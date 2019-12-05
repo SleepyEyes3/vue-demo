@@ -29,7 +29,12 @@
               >￥{{ goodsinfo.sell_price }}</span
             >
           </p>
-          <p>购买数量：<Numbox @getcount="getSelectedCount" :max="goodsinfo.stock_quantity"></Numbox></p>
+          <p>
+            购买数量：<Numbox
+              @getcount="getSelectedCount"
+              :max="goodsinfo.stock_quantity"
+            ></Numbox>
+          </p>
           <p>
             <mt-button type="primary" size="small">立即购买</mt-button>
             <mt-button type="danger" size="small" @click="addToShopCar"
@@ -114,6 +119,13 @@ export default {
     },
     addToShopCar() {
       this.ballFlag = !this.ballFlag;
+      var goodsInfo = {
+        id: this.id,
+        count: this.selectedCount,
+        price: this.goodsinfo.sell_price,
+        selected: true
+      };
+      this.$store.commit("addGoodsToCar", goodsInfo);
     },
     beforeEnter(el) {
       el.style.transform = "translate(0,0)";

@@ -16,4 +16,4 @@
       }
     }
     (3) 相当于一个过滤器，对state中的值进行一层包装，state中的数值已发生变化，就会引发getter中的重新求值
-    (4) this.$store.getters.methodName()
+    (4) this.$store.getters.methodName
